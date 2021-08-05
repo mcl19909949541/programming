@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1608112551 source:c:\users\pog\desktop\编程\#洛谷\p1217 [usaco1.5]回文质数 prime palindromes\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+

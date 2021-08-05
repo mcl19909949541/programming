@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "callback.h": "c",
+        "can.h": "c",
+        "digital_gray16.h": "c",
+        "track.h": "c",
+        "laser.h": "c",
+        "oled.h": "c"
+    }
+}

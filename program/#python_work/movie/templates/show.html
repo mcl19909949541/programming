@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--引入echarts-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script> "
+</head>
+<body>
+        <div id = "main"  style = "width:800px; height:600px;background:hotpink "></div>
+<script>  <!--echarts初始化--->       <!--javascript创建变量要加var-->
+    var main =  echarts.init(document.getElementById("main"))<!--通过id获取到一个结点-->
+    //配置echarts
+    var option = {
+    backgroundColor: '#2c343c',
+
+    title: {
+        text: 'Customized Pie',
+        left: 'center',
+        top: 20,
+        textStyle: {
+            color: '#ccc'
+        }
+    },
+
+    tooltip: {
+        trigger: 'item'
+    },
+
+    visualMap: {
+        show: false,
+        min: 10000,
+        max: 100000,
+        inRange: {
+            colorLightness: [0, 1]
+        }
+    },
+    series: [
+        {
+            name: '票数',
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '50%'],
+            //这里用{{ data|tojson }}方式来传信息
+            data: {{ data|tojson }}.sort(function (a, b) { return a.value - b.value; }),
+            roseType: 'radius',
+            label: {
+                color: 'rgba(255, 255, 255, 0.3)'
+            },
+            labelLine: {
+                lineStyle: {
+                    color: 'rgba(255, 255, 255, 0.3)'
+                },
+                smooth: 0.2,
+                length: 10,
+                length2: 20
+            },
+            itemStyle: {
+                color: '#c23531',
+                shadowBlur: 200,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+            },
+
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function (idx) {
+                return Math.random() * 200;
+            }
+        }
+    ]
+};
+    // 把配置给echarts
+    main.setOption(option)
+</script>
+</body>
+</html>

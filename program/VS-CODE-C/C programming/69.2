@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+int h;
+void fun(char*p,char s[])
+{
+int n,i,j=0;
+n=strlen(s);
+for(i=1;i<n;i+=2)
+{
+if((s[i]-'0')%2!=0)p[j]=s[i],j++;
+}
+h=j;
+}
+int main()
+{
+char s[100],p[100],*a;
+int i;
+a=p;
+gets(s);
+fun(a,s);
+for(i=0;i<h;i++)
+{
+printf("%c",p[i]);
+}
+return 0;
+
+}

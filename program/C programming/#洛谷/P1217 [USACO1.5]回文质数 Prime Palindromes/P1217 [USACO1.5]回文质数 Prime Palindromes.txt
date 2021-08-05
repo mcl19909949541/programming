@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void prime_judgement(int A[],int i);
+int main()
+{
+    int i,j,k;
+    int a,b,A[1000]={0};
+    scanf("%d%d",&a,&b);
+    for(k=a;k<=b;k++)
+    {     i=0;
+  int   flag=0;
+         for(j=2;j<k;j++)
+         {
+             if(k%j==0) {flag=1;break;}
+         }
+         if(flag==1) continue;
+       do
+       {
+           A[i]=k%10;
+           k/=10;
+           i++;
+       }while(k!=0);
+       i-=1;
+       prime_judgement(A,i);
+       memset(A,0,sizeof(A));
+    }
+    return 0;
+}
+void prime_judgement(int A[],int i)
+{
+    int *p1,*p2,j,k;
+   p1=A;
+   p2=A+i;
+   if(i%2!=0) return;
+   for(j=0;;)
+   {
+       if(*p1==*p2)p1++,p2--,j++;
+       else return;
+       if(j==(i/2))
+       {
+    for(k=0;k<=i;k++) printf("%d",A[k]);
+    printf("\n");
+       return ;
+       }
+   }
+
+}
